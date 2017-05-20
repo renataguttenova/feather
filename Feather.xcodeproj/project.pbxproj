@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9425FF261ED07A0500E908EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF251ED07A0500E908EA /* main.m */; };
+		9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF281ED07A0600E908EA /* AppDelegate.m */; };
+		9425FF2C1ED07A0600E908EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF2B1ED07A0600E908EA /* ViewController.m */; };
+		9425FF2F1ED07A0600E908EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF2D1ED07A0600E908EA /* Main.storyboard */; };
+		9425FF311ED07A0600E908EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF301ED07A0600E908EA /* Assets.xcassets */; };
+		9425FF341ED07A0600E908EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF321ED07A0600E908EA /* LaunchScreen.storyboard */; };
+		9425FF3F1ED07A0700E908EA /* FeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF3E1ED07A0700E908EA /* FeatherTests.m */; };
+		9425FF4A1ED07A0700E908EA /* FeatherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF491ED07A0700E908EA /* FeatherUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9425FF3B1ED07A0700E908EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9425FF191ED07A0500E908EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9425FF201ED07A0500E908EA;
+			remoteInfo = Feather;
+		};
+		9425FF461ED07A0700E908EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9425FF191ED07A0500E908EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9425FF201ED07A0500E908EA;
+			remoteInfo = Feather;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9425FF211ED07A0500E908EA /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9425FF251ED07A0500E908EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9425FF271ED07A0500E908EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9425FF281ED07A0600E908EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9425FF2A1ED07A0600E908EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9425FF2B1ED07A0600E908EA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9425FF2E1ED07A0600E908EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9425FF301ED07A0600E908EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9425FF331ED07A0600E908EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9425FF351ED07A0600E908EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9425FF3A1ED07A0700E908EA /* FeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9425FF3E1ED07A0700E908EA /* FeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeatherTests.m; sourceTree = "<group>"; };
+		9425FF401ED07A0700E908EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9425FF451ED07A0700E908EA /* FeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9425FF491ED07A0700E908EA /* FeatherUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeatherUITests.m; sourceTree = "<group>"; };
+		9425FF4B1ED07A0700E908EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9425FF1E1ED07A0500E908EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9425FF371ED07A0700E908EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9425FF421ED07A0700E908EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9425FF181ED07A0500E908EA = {
+			isa = PBXGroup;
+			children = (
+				9425FF231ED07A0500E908EA /* Feather */,
+				9425FF3D1ED07A0700E908EA /* FeatherTests */,
+				9425FF481ED07A0700E908EA /* FeatherUITests */,
+				9425FF221ED07A0500E908EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9425FF221ED07A0500E908EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9425FF211ED07A0500E908EA /* Feather.app */,
+				9425FF3A1ED07A0700E908EA /* FeatherTests.xctest */,
+				9425FF451ED07A0700E908EA /* FeatherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9425FF231ED07A0500E908EA /* Feather */ = {
+			isa = PBXGroup;
+			children = (
+				9425FF271ED07A0500E908EA /* AppDelegate.h */,
+				9425FF281ED07A0600E908EA /* AppDelegate.m */,
+				9425FF2A1ED07A0600E908EA /* ViewController.h */,
+				9425FF2B1ED07A0600E908EA /* ViewController.m */,
+				9425FF2D1ED07A0600E908EA /* Main.storyboard */,
+				9425FF301ED07A0600E908EA /* Assets.xcassets */,
+				9425FF321ED07A0600E908EA /* LaunchScreen.storyboard */,
+				9425FF351ED07A0600E908EA /* Info.plist */,
+				9425FF241ED07A0500E908EA /* Supporting Files */,
+			);
+			path = Feather;
+			sourceTree = "<group>";
+		};
+		9425FF241ED07A0500E908EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9425FF251ED07A0500E908EA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9425FF3D1ED07A0700E908EA /* FeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				9425FF3E1ED07A0700E908EA /* FeatherTests.m */,
+				9425FF401ED07A0700E908EA /* Info.plist */,
+			);
+			path = FeatherTests;
+			sourceTree = "<group>";
+		};
+		9425FF481ED07A0700E908EA /* FeatherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9425FF491ED07A0700E908EA /* FeatherUITests.m */,
+				9425FF4B1ED07A0700E908EA /* Info.plist */,
+			);
+			path = FeatherUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9425FF201ED07A0500E908EA /* Feather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9425FF4E1ED07A0700E908EA /* Build configuration list for PBXNativeTarget "Feather" */;
+			buildPhases = (
+				9425FF1D1ED07A0500E908EA /* Sources */,
+				9425FF1E1ED07A0500E908EA /* Frameworks */,
+				9425FF1F1ED07A0500E908EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Feather;
+			productName = Feather;
+			productReference = 9425FF211ED07A0500E908EA /* Feather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9425FF391ED07A0700E908EA /* FeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9425FF511ED07A0700E908EA /* Build configuration list for PBXNativeTarget "FeatherTests" */;
+			buildPhases = (
+				9425FF361ED07A0700E908EA /* Sources */,
+				9425FF371ED07A0700E908EA /* Frameworks */,
+				9425FF381ED07A0700E908EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9425FF3C1ED07A0700E908EA /* PBXTargetDependency */,
+			);
+			name = FeatherTests;
+			productName = FeatherTests;
+			productReference = 9425FF3A1ED07A0700E908EA /* FeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9425FF441ED07A0700E908EA /* FeatherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9425FF541ED07A0700E908EA /* Build configuration list for PBXNativeTarget "FeatherUITests" */;
+			buildPhases = (
+				9425FF411ED07A0700E908EA /* Sources */,
+				9425FF421ED07A0700E908EA /* Frameworks */,
+				9425FF431ED07A0700E908EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9425FF471ED07A0700E908EA /* PBXTargetDependency */,
+			);
+			name = FeatherUITests;
+			productName = FeatherUITests;
+			productReference = 9425FF451ED07A0700E908EA /* FeatherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9425FF191ED07A0500E908EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Renata Guttenová";
+				TargetAttributes = {
+					9425FF201ED07A0500E908EA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					9425FF391ED07A0700E908EA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9425FF201ED07A0500E908EA;
+					};
+					9425FF441ED07A0700E908EA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9425FF201ED07A0500E908EA;
+					};
+				};
+			};
+			buildConfigurationList = 9425FF1C1ED07A0500E908EA /* Build configuration list for PBXProject "Feather" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9425FF181ED07A0500E908EA;
+			productRefGroup = 9425FF221ED07A0500E908EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9425FF201ED07A0500E908EA /* Feather */,
+				9425FF391ED07A0700E908EA /* FeatherTests */,
+				9425FF441ED07A0700E908EA /* FeatherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9425FF1F1ED07A0500E908EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9425FF341ED07A0600E908EA /* LaunchScreen.storyboard in Resources */,
+				9425FF311ED07A0600E908EA /* Assets.xcassets in Resources */,
+				9425FF2F1ED07A0600E908EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9425FF381ED07A0700E908EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9425FF431ED07A0700E908EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9425FF1D1ED07A0500E908EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9425FF2C1ED07A0600E908EA /* ViewController.m in Sources */,
+				9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */,
+				9425FF261ED07A0500E908EA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9425FF361ED07A0700E908EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9425FF3F1ED07A0700E908EA /* FeatherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9425FF411ED07A0700E908EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9425FF4A1ED07A0700E908EA /* FeatherUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9425FF3C1ED07A0700E908EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9425FF201ED07A0500E908EA /* Feather */;
+			targetProxy = 9425FF3B1ED07A0700E908EA /* PBXContainerItemProxy */;
+		};
+		9425FF471ED07A0700E908EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9425FF201ED07A0500E908EA /* Feather */;
+			targetProxy = 9425FF461ED07A0700E908EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9425FF2D1ED07A0600E908EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9425FF2E1ED07A0600E908EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9425FF321ED07A0600E908EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9425FF331ED07A0600E908EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9425FF4C1ED07A0700E908EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9425FF4D1ED07A0700E908EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9425FF4F1ED07A0700E908EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Feather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Renata.Feather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9425FF501ED07A0700E908EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Feather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Renata.Feather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9425FF521ED07A0700E908EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Renata.FeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Feather.app/Feather";
+			};
+			name = Debug;
+		};
+		9425FF531ED07A0700E908EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Renata.FeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Feather.app/Feather";
+			};
+			name = Release;
+		};
+		9425FF551ED07A0700E908EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Renata.FeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Feather;
+			};
+			name = Debug;
+		};
+		9425FF561ED07A0700E908EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Renata.FeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Feather;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9425FF1C1ED07A0500E908EA /* Build configuration list for PBXProject "Feather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9425FF4C1ED07A0700E908EA /* Debug */,
+				9425FF4D1ED07A0700E908EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9425FF4E1ED07A0700E908EA /* Build configuration list for PBXNativeTarget "Feather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9425FF4F1ED07A0700E908EA /* Debug */,
+				9425FF501ED07A0700E908EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9425FF511ED07A0700E908EA /* Build configuration list for PBXNativeTarget "FeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9425FF521ED07A0700E908EA /* Debug */,
+				9425FF531ED07A0700E908EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9425FF541ED07A0700E908EA /* Build configuration list for PBXNativeTarget "FeatherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9425FF551ED07A0700E908EA /* Debug */,
+				9425FF561ED07A0700E908EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9425FF191ED07A0500E908EA /* Project object */;
+}
