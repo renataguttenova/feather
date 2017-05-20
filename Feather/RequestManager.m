@@ -28,16 +28,12 @@
     [params setObject:APIXU_KEY forKey:@"key"];
     [params setObject:[NSString stringWithFormat:@"%f,%f", coordinate.latitude, coordinate.longitude] forKey:@"q"];
     
-    [SVProgressHUD show];
-    
     [[AFHTTPSessionManager manager] GET:[APIXU_BASE_URL stringByAppendingString:@"current.json"] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (completion) {
             City *city = [[City alloc] initWithDict:responseObject]; completion(city);
         }
-        
-        [SVProgressHUD dismiss];
-        
+                
     }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"fail");
     }];

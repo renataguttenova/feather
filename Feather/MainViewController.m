@@ -19,6 +19,9 @@
 @property (strong, nonatomic) NSArray *citiesArray;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
+
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -31,6 +34,10 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this s like when we drag the button to connect it - but done rogramatically, so I created a method to set what it does when pressed
     
     [self configureLocationManager];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchWeatherForCurrentLocation) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];  //this is so that the refreshing circle doesnt go over the cell when returning up
 }
 
 - (void)addButtonPressed {
@@ -40,7 +47,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 
 - (void)configure {
@@ -74,13 +80,21 @@
     
     NSLog(@"DEBUG---- did update locations");
     
-    CLLocation *currentLocation = [locations firstObject];
+    self.currentLocation = [locations firstObject];
     
-    [SVProgressHUD show];
+    [self fetchWeatherForCurrentLocation];
+}
+
+- (void)fetchWeatherForCurrentLocation {
     
-    [[RequestManager sharedManager] requestCurrentWeatherWithCoordinate:currentLocation.coordinate withCompletion:^(City *city) {
+    if (![self.refreshControl isRefreshing]) {
+        [SVProgressHUD show];
+    }
+
+    [[RequestManager sharedManager] requestCurrentWeatherWithCoordinate:self.currentLocation.coordinate withCompletion:^(City *city) {
         
         [SVProgressHUD dismiss];
+        [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
         
         if (city) {
             self.citiesArray = @[city];
@@ -88,6 +102,10 @@
         }
         
     }];
+}
+
+- (void)finishRefresh {
+    [self.refreshControl endRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
