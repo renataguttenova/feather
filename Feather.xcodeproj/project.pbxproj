@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23A0C24E72C363970A8F0846 /* libPods-Feather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7442AA4A80A51C126F5FD94C /* libPods-Feather.a */; };
 		9425FF261ED07A0500E908EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF251ED07A0500E908EA /* main.m */; };
 		9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF281ED07A0600E908EA /* AppDelegate.m */; };
 		9425FF311ED07A0600E908EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF301ED07A0600E908EA /* Assets.xcassets */; };
@@ -17,6 +18,8 @@
 		9425FF5B1ED07AAD00E908EA /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF591ED07AAD00E908EA /* MainViewController.xib */; };
 		9425FF5F1ED07EE200E908EA /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF5D1ED07EE200E908EA /* CityTableViewCell.m */; };
 		9425FF601ED07EE200E908EA /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF5E1ED07EE200E908EA /* CityTableViewCell.xib */; };
+		9425FF661ED09D1500E908EA /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF651ED09D1500E908EA /* RequestManager.m */; };
+		9425FF6A1ED0A31100E908EA /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF691ED0A31100E908EA /* City.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38483B74C7940CB709B8A2E1 /* libPods-FeatherTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FeatherTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A54BE5E9FA972084BDCD8B3 /* Pods-Feather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feather/Pods-Feather.debug.xcconfig"; sourceTree = "<group>"; };
+		5C097464DA82B62E8B42DB13 /* libPods-FeatherUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FeatherUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7442AA4A80A51C126F5FD94C /* libPods-Feather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Feather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E98D2EBFF9A205CD2ED5B92 /* Pods-Feather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feather/Pods-Feather.release.xcconfig"; sourceTree = "<group>"; };
 		9425FF211ED07A0500E908EA /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9425FF251ED07A0500E908EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9425FF271ED07A0500E908EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +64,11 @@
 		9425FF5C1ED07EE200E908EA /* CityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
 		9425FF5D1ED07EE200E908EA /* CityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewCell.m; sourceTree = "<group>"; };
 		9425FF5E1ED07EE200E908EA /* CityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
+		9425FF641ED09D1500E908EA /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
+		9425FF651ED09D1500E908EA /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
+		9425FF671ED09D8C00E908EA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		9425FF681ED0A31100E908EA /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		9425FF691ED0A31100E908EA /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A0C24E72C363970A8F0846 /* libPods-Feather.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6801DCDBFB7C4F68F5B710B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A54BE5E9FA972084BDCD8B3 /* Pods-Feather.debug.xcconfig */,
+				7E98D2EBFF9A205CD2ED5B92 /* Pods-Feather.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9425FF181ED07A0500E908EA = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +113,8 @@
 				9425FF3D1ED07A0700E908EA /* FeatherTests */,
 				9425FF481ED07A0700E908EA /* FeatherUITests */,
 				9425FF221ED07A0500E908EA /* Products */,
+				6801DCDBFB7C4F68F5B710B9 /* Pods */,
+				AD1EFCE631F540EC1C2DC3DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,14 +131,19 @@
 		9425FF231ED07A0500E908EA /* Feather */ = {
 			isa = PBXGroup;
 			children = (
+				9425FF671ED09D8C00E908EA /* PrefixHeader.pch */,
 				9425FF271ED07A0500E908EA /* AppDelegate.h */,
 				9425FF281ED07A0600E908EA /* AppDelegate.m */,
+				9425FF641ED09D1500E908EA /* RequestManager.h */,
+				9425FF651ED09D1500E908EA /* RequestManager.m */,
 				9425FF571ED07AAD00E908EA /* MainViewController.h */,
 				9425FF581ED07AAD00E908EA /* MainViewController.m */,
 				9425FF591ED07AAD00E908EA /* MainViewController.xib */,
 				9425FF5C1ED07EE200E908EA /* CityTableViewCell.h */,
 				9425FF5D1ED07EE200E908EA /* CityTableViewCell.m */,
 				9425FF5E1ED07EE200E908EA /* CityTableViewCell.xib */,
+				9425FF681ED0A31100E908EA /* City.h */,
+				9425FF691ED0A31100E908EA /* City.m */,
 				9425FF301ED07A0600E908EA /* Assets.xcassets */,
 				9425FF321ED07A0600E908EA /* LaunchScreen.storyboard */,
 				9425FF351ED07A0600E908EA /* Info.plist */,
@@ -148,6 +178,16 @@
 			path = FeatherUITests;
 			sourceTree = "<group>";
 		};
+		AD1EFCE631F540EC1C2DC3DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7442AA4A80A51C126F5FD94C /* libPods-Feather.a */,
+				38483B74C7940CB709B8A2E1 /* libPods-FeatherTests.a */,
+				5C097464DA82B62E8B42DB13 /* libPods-FeatherUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9425FF4E1ED07A0700E908EA /* Build configuration list for PBXNativeTarget "Feather" */;
 			buildPhases = (
+				C822887F9785939958BED37A /* [CP] Check Pods Manifest.lock */,
 				9425FF1D1ED07A0500E908EA /* Sources */,
 				9425FF1E1ED07A0500E908EA /* Frameworks */,
 				9425FF1F1ED07A0500E908EA /* Resources */,
+				A907BC09F35833BDDF0B26EB /* [CP] Embed Pods Frameworks */,
+				A5B2E342DB165AA5430CF307 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,12 +320,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A5B2E342DB165AA5430CF307 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Feather/Pods-Feather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A907BC09F35833BDDF0B26EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Feather/Pods-Feather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C822887F9785939958BED37A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9425FF1D1ED07A0500E908EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9425FF661ED09D1500E908EA /* RequestManager.m in Sources */,
 				9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */,
+				9425FF6A1ED0A31100E908EA /* City.m in Sources */,
 				9425FF5A1ED07AAD00E908EA /* MainViewController.m in Sources */,
 				9425FF5F1ED07EE200E908EA /* CityTableViewCell.m in Sources */,
 				9425FF261ED07A0500E908EA /* main.m in Sources */,
@@ -363,6 +456,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Feather/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -409,6 +504,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Feather/PrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -424,6 +521,7 @@
 		};
 		9425FF4F1ED07A0700E908EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A54BE5E9FA972084BDCD8B3 /* Pods-Feather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Feather/Info.plist;
@@ -435,6 +533,7 @@
 		};
 		9425FF501ED07A0700E908EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E98D2EBFF9A205CD2ED5B92 /* Pods-Feather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Feather/Info.plist;
@@ -509,6 +608,7 @@
 				9425FF501ED07A0700E908EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9425FF511ED07A0700E908EA /* Build configuration list for PBXNativeTarget "FeatherTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +617,7 @@
 				9425FF531ED07A0700E908EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9425FF541ED07A0700E908EA /* Build configuration list for PBXNativeTarget "FeatherUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +626,7 @@
 				9425FF561ED07A0700E908EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

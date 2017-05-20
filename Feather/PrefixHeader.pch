@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  Feather
+//
+//  Created by Renata Guttenová on 20/05/2017.
+//  Copyright © 2017 Renata Guttenová. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#define APIXU_KEY @"25962e4fdec544359cd164840170402"
+#define APIXU_BASE_URL @"https://api.apixu.com/v1/"
+
+#endif

@@ -6,13 +6,19 @@
 //  Copyright © 2017 Renata Guttenová. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import "MainViewController.h"
 #import "CityTableViewCell.h"
+#import "City.h"
+#import "RequestManager.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 
-@interface MainViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *citiesArray;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -21,9 +27,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configure];
-   // [self configureRightBarButtonItem];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this s like when we drag the button to connect it - but done rogramatically, so I created a method to set what it does when pressed
+    
+    [self configureLocationManager];
 }
 
 - (void)addButtonPressed {
@@ -34,6 +41,8 @@
     [super didReceiveMemoryWarning];
 }
 
+
+
 - (void)configure {
     [self setTitle:@"Title"];
     
@@ -43,9 +52,42 @@
     self.tableView.backgroundColor = [UIColor redColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CityTableViewCell" bundle:nil] forCellReuseIdentifier:@"CityTableViewCell"];
+}
+
+- (void)configureLocationManager {
+    self.locationManager = [[CLLocationManager alloc] init];
     
-    self.citiesArray = @[@"Barcelona", @"Helsinki", @"Prague", @"Copenhagen",
-                        @"Berlin", @"Sofia"];
+    self.locationManager.delegate = self;
+    
+    self.locationManager.distanceFilter = 100;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+    
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    NSLog(@"DEBUG___ did change authorization status");
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    
+    NSLog(@"DEBUG---- did update locations");
+    
+    CLLocation *currentLocation = [locations firstObject];
+    
+    [SVProgressHUD show];
+    
+    [[RequestManager sharedManager] requestCurrentWeatherWithCoordinate:currentLocation.coordinate withCompletion:^(City *city) {
+        
+        [SVProgressHUD dismiss];
+        
+        if (city) {
+            self.citiesArray = @[city];
+            [self.tableView reloadData];
+        }
+        
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -60,23 +102,13 @@
     
     CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
     
-    NSString *cityString = self.citiesArray[indexPath.row];
-    cell.cityLabel.text = cityString;
+    City *city = self.citiesArray[indexPath.row];
+    [cell configureWithCity:city];
     
     return cell;
 }
 
-//- (void)configureRightBarButtonItem {
-//    UIBarButtonItem *buttonAdd = [[[UIBarButtonItem alloc] initWithTitle:@"+"
-//                                                                   style:UIBarButtonItemStyleBordered
-//                                                                  target:self
-//                                                                  //action:@selector(dismiss)]autorelease];
-//    
-//    self.navigationItem.rightBarButtonItem = buttonAdd;
-//    
-//    //[btnCancel release]; no need to explicitly release the item
-//    
-//}
+
 
 
 @end

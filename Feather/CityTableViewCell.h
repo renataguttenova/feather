@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
 @interface CityTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+- (void)configureWithCity:(City *)city;
 
 @end

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,27 +17,38 @@
             <rect key="frame" x="0.0" y="0.0" width="425" height="123"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="425" height="123"/>
+                <rect key="frame" x="0.0" y="0.0" width="425" height="122.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9g-9w-YoX">
-                        <rect key="frame" x="8" y="8" width="409" height="106.5"/>
-                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="122.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIS-wR-to9">
+                        <rect key="frame" x="319" y="8" width="98" height="106.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="g9g-9w-YoX" secondAttribute="bottom" id="4Kc-8Z-Vqy"/>
-                    <constraint firstItem="g9g-9w-YoX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="dLa-wl-WXh"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="g9g-9w-YoX" secondAttribute="trailing" id="nc5-5B-6pa"/>
-                    <constraint firstItem="g9g-9w-YoX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="voI-Q1-JLV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hIS-wR-to9" secondAttribute="trailing" id="7O4-7U-w4W"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hIS-wR-to9" secondAttribute="bottom" id="KzW-xJ-O1W"/>
+                    <constraint firstItem="g9g-9w-YoX" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.75" id="SUQ-eN-ihS"/>
+                    <constraint firstItem="g9g-9w-YoX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WKH-fy-EJn"/>
+                    <constraint firstItem="hIS-wR-to9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="cya-jE-f8m"/>
+                    <constraint firstItem="g9g-9w-YoX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="llN-gx-imz"/>
+                    <constraint firstAttribute="bottom" secondItem="g9g-9w-YoX" secondAttribute="bottom" id="yKY-5F-AQv"/>
+                    <constraint firstItem="hIS-wR-to9" firstAttribute="leading" secondItem="g9g-9w-YoX" secondAttribute="trailing" id="yrq-oF-TCH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="cityLabel" destination="g9g-9w-YoX" id="pr6-jR-aWk"/>
+                <outlet property="temperatureLabel" destination="hIS-wR-to9" id="Iax-7x-fxh"/>
             </connections>
-            <point key="canvasLocation" x="32" y="-66"/>
+            <point key="canvasLocation" x="-9.5" y="-200.5"/>
         </tableViewCell>
     </objects>
 </document>

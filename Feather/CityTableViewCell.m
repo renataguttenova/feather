@@ -22,5 +22,10 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)configureWithCity:(City *)city {
+    self.cityLabel.text = city.locationName;
+    self.temperatureLabel.text = city.tempCString;
+}
+
 
 @end
