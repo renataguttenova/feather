@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		23A0C24E72C363970A8F0846 /* libPods-Feather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7442AA4A80A51C126F5FD94C /* libPods-Feather.a */; };
+		940D97AA1ED9AA1E00DBED89 /* CitySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940D97A81ED9AA1E00DBED89 /* CitySearchTableViewCell.m */; };
+		940D97AB1ED9AA1E00DBED89 /* CitySearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940D97A91ED9AA1E00DBED89 /* CitySearchTableViewCell.xib */; };
 		9425FF261ED07A0500E908EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF251ED07A0500E908EA /* main.m */; };
 		9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF281ED07A0600E908EA /* AppDelegate.m */; };
 		9425FF311ED07A0600E908EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF301ED07A0600E908EA /* Assets.xcassets */; };
@@ -20,6 +22,10 @@
 		9425FF601ED07EE200E908EA /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF5E1ED07EE200E908EA /* CityTableViewCell.xib */; };
 		9425FF661ED09D1500E908EA /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF651ED09D1500E908EA /* RequestManager.m */; };
 		9425FF6A1ED0A31100E908EA /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF691ED0A31100E908EA /* City.m */; };
+		9425FF6E1ED2398F00E908EA /* CitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF6C1ED2398F00E908EA /* CitySearchViewController.m */; };
+		9425FF6F1ED2398F00E908EA /* CitySearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF6D1ED2398F00E908EA /* CitySearchViewController.xib */; };
+		9425FF771ED2418200E908EA /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF761ED2418200E908EA /* SearchBar.m */; };
+		9425FF7B1ED241A300E908EA /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF7A1ED241A300E908EA /* SearchBar.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,9 @@
 		5C097464DA82B62E8B42DB13 /* libPods-FeatherUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FeatherUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7442AA4A80A51C126F5FD94C /* libPods-Feather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Feather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E98D2EBFF9A205CD2ED5B92 /* Pods-Feather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feather/Pods-Feather.release.xcconfig"; sourceTree = "<group>"; };
+		940D97A71ED9AA1E00DBED89 /* CitySearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchTableViewCell.h; sourceTree = "<group>"; };
+		940D97A81ED9AA1E00DBED89 /* CitySearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchTableViewCell.m; sourceTree = "<group>"; };
+		940D97A91ED9AA1E00DBED89 /* CitySearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySearchTableViewCell.xib; sourceTree = "<group>"; };
 		9425FF211ED07A0500E908EA /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9425FF251ED07A0500E908EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9425FF271ED07A0500E908EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +78,12 @@
 		9425FF671ED09D8C00E908EA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		9425FF681ED0A31100E908EA /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		9425FF691ED0A31100E908EA /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		9425FF6B1ED2398F00E908EA /* CitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchViewController.h; sourceTree = "<group>"; };
+		9425FF6C1ED2398F00E908EA /* CitySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchViewController.m; sourceTree = "<group>"; };
+		9425FF6D1ED2398F00E908EA /* CitySearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySearchViewController.xib; sourceTree = "<group>"; };
+		9425FF751ED2418200E908EA /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
+		9425FF761ED2418200E908EA /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
+		9425FF7A1ED241A300E908EA /* SearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +154,15 @@
 				9425FF571ED07AAD00E908EA /* MainViewController.h */,
 				9425FF581ED07AAD00E908EA /* MainViewController.m */,
 				9425FF591ED07AAD00E908EA /* MainViewController.xib */,
+				9425FF6B1ED2398F00E908EA /* CitySearchViewController.h */,
+				9425FF6C1ED2398F00E908EA /* CitySearchViewController.m */,
+				9425FF6D1ED2398F00E908EA /* CitySearchViewController.xib */,
+				940D97A71ED9AA1E00DBED89 /* CitySearchTableViewCell.h */,
+				940D97A81ED9AA1E00DBED89 /* CitySearchTableViewCell.m */,
+				940D97A91ED9AA1E00DBED89 /* CitySearchTableViewCell.xib */,
+				9425FF751ED2418200E908EA /* SearchBar.h */,
+				9425FF761ED2418200E908EA /* SearchBar.m */,
+				9425FF7A1ED241A300E908EA /* SearchBar.xib */,
 				9425FF5C1ED07EE200E908EA /* CityTableViewCell.h */,
 				9425FF5D1ED07EE200E908EA /* CityTableViewCell.m */,
 				9425FF5E1ED07EE200E908EA /* CityTableViewCell.xib */,
@@ -298,9 +322,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9425FF341ED07A0600E908EA /* LaunchScreen.storyboard in Resources */,
+				940D97AB1ED9AA1E00DBED89 /* CitySearchTableViewCell.xib in Resources */,
 				9425FF5B1ED07AAD00E908EA /* MainViewController.xib in Resources */,
 				9425FF601ED07EE200E908EA /* CityTableViewCell.xib in Resources */,
 				9425FF311ED07A0600E908EA /* Assets.xcassets in Resources */,
+				9425FF6F1ED2398F00E908EA /* CitySearchViewController.xib in Resources */,
+				9425FF7B1ED241A300E908EA /* SearchBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,9 +401,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9425FF661ED09D1500E908EA /* RequestManager.m in Sources */,
+				9425FF771ED2418200E908EA /* SearchBar.m in Sources */,
+				9425FF6E1ED2398F00E908EA /* CitySearchViewController.m in Sources */,
 				9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */,
 				9425FF6A1ED0A31100E908EA /* City.m in Sources */,
 				9425FF5A1ED07AAD00E908EA /* MainViewController.m in Sources */,
+				940D97AA1ED9AA1E00DBED89 /* CitySearchTableViewCell.m in Sources */,
 				9425FF5F1ED07EE200E908EA /* CityTableViewCell.m in Sources */,
 				9425FF261ED07A0500E908EA /* main.m in Sources */,
 			);

@@ -12,6 +12,7 @@
 #import "City.h"
 #import "RequestManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "CitySearchViewController.h"
 
 
 @interface MainViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
@@ -41,7 +42,8 @@
 }
 
 - (void)addButtonPressed {
-    NSLog(@"Add button pressed");
+    CitySearchViewController *citySearchViewController = [[CitySearchViewController alloc] init];
+    [self presentViewController:citySearchViewController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,6 +22,18 @@
     return sharedInstance;
 }
 
+- (void)fetchPlaceDetailsWithPrediction:(GMSAutocompletePrediction *)prediction {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *URLString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@", prediction.placeID, GOOGLE_PLACES_KEY];
+    
+    [manager POST:URLString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 - (void)requestCurrentWeatherWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (City *city))completion {
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

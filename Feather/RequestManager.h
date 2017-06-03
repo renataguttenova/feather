@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "City.h"
+#import <GooglePlaces/GooglePlaces.h>
 
 
 @interface RequestManager : NSObject
 
 + (instancetype)sharedManager;
 
+- (void)fetchPlaceDetailsWithPrediction:(GMSAutocompletePrediction *)prediction;
 - (void)requestCurrentWeatherWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (City *city))completion;
 
 @end
