@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "CitySearchViewController.h"
+#import <GooglePlaces/GooglePlaces.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [GMSPlacesClient provideAPIKey:GOOGLE_PLACES_KEY];
     
     self.window = [[UIWindow alloc] init];
     self.window.frame = [[UIScreen mainScreen] bounds];
