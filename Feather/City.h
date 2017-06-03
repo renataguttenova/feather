@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface City : NSObject
 
 @property (strong, nonatomic) NSString *locationName;
 @property (strong, nonatomic) NSNumber *tempC;
-@property (strong, nonatomic) NSString *tempCString;
-@property (strong, nonatomic) NSString *simpleDescription;
-
-- (instancetype)initWithDict:(NSDictionary *)dict;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (strong, nonatomic) NSString *googlePlaceID;
 
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
+
+@protocol CitySearchViewControllerDelegate <NSObject>
+-(void)addCity:(City *)city;
+@end
 
 @interface CitySearchViewController : UIViewController
+@property (nonatomic, weak) id<CitySearchViewControllerDelegate> delegate;
 
 @end

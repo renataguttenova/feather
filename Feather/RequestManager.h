@@ -16,7 +16,8 @@
 
 + (instancetype)sharedManager;
 
-- (void)fetchPlaceDetailsWithPrediction:(GMSAutocompletePrediction *)prediction;
-- (void)requestCurrentWeatherWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (City *city))completion;
+- (void)fetchCityWithPrediction:(GMSAutocompletePrediction *)prediction withCompletion:(void (^) (City *city))completion;
+- (void)fetchCityWithCurrentWeatherWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (City *city))completion;
+- (void)updateCityWithCurrentWeather:(City *)city withCompletion:(void (^) (void))completion;
 
 @end

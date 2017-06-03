@@ -19,8 +19,9 @@
 @property (weak, nonatomic) IBOutlet SearchBar *searchBar;
 
 @property (strong, nonatomic) GMSAutocompleteFetcher *placeFetcher;
+@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 
-@property (strong, nonatomic) NSArray *placesArray;
+@property (strong, nonatomic) NSArray *predictionsArray;
 
 @end
 
@@ -57,20 +58,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.placesArray.count;
+    return self.predictionsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CitySearchTableViewCell *cell = (CitySearchTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CitySearchTableViewCell"];
     
-    [cell configureWithPrediction:self.placesArray[indexPath.row]];
+    [cell configureWithPrediction:self.predictionsArray[indexPath.row]];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [[RequestManager sharedManager] fetchPlaceDetailsWithPrediction:self.placesArray[indexPath.row]];
+    [[RequestManager sharedManager] fetchCityWithPrediction:self.predictionsArray[indexPath.row] withCompletion:^(City *city) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.delegate addCity:city];
+        }];
+    }];
 }
 
 #pragma mark - GMSAutocompleteFetcherDelegate
@@ -81,7 +86,7 @@
     for (GMSAutocompletePrediction *prediction in predictions) {
         [mutableArray addObject:prediction];
     }
-    self.placesArray = mutableArray;
+    self.predictionsArray = mutableArray;
     [self.tableView reloadData];
 }
 

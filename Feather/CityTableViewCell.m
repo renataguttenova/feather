@@ -24,7 +24,7 @@
 
 - (void)configureWithCity:(City *)city {
     self.cityLabel.text = city.locationName;
-    self.temperatureLabel.text = city.tempCString;
+    self.temperatureLabel.text = [city.tempC stringValue];
 }
 
 

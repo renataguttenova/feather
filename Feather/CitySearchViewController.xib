@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CitySearchViewController">
             <connections>
+                <outlet property="dismissButton" destination="c8Z-YP-8Ml" id="f9D-x1-pd7"/>
                 <outlet property="searchBar" destination="qDH-gK-bxu" id="8UZ-bs-KH5"/>
                 <outlet property="tableView" destination="8uF-1X-D5P" id="u5A-NJ-1G9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,8 +26,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Z-YP-8Ml">
-                            <rect key="frame" x="264" y="0.0" width="46" height="50"/>
-                            <state key="normal" title="Button"/>
+                            <rect key="frame" x="260" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Ts3-Ui-F9i"/>
+                            </constraints>
+                            <state key="normal" title="X"/>
                             <connections>
                                 <action selector="dismissButtonPressed:" destination="-1" eventType="touchUpInside" id="Www-Cm-Jum"/>
                             </connections>

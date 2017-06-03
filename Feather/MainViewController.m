@@ -15,9 +15,11 @@
 #import "CitySearchViewController.h"
 
 
-@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
+@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, CitySearchViewControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *citiesArray;
+@property (strong, nonatomic) City *currentCity;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
@@ -30,20 +32,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.citiesArray = [self retrieveCitiesFromNSUserDefaults];
     [self configure];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this s like when we drag the button to connect it - but done rogramatically, so I created a method to set what it does when pressed
+    self.title = @"TEST";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done rogramatically, so I created a method to set what it does when pressed
     
     [self configureLocationManager];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchWeatherForCurrentLocation) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(updateCitiesWithCurrentWeather) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];  //this is so that the refreshing circle doesnt go over the cell when returning up
+    
+    [self updateCitiesWithCurrentWeather];
 }
 
 - (void)addButtonPressed {
     CitySearchViewController *citySearchViewController = [[CitySearchViewController alloc] init];
+    citySearchViewController.delegate = self;
     [self presentViewController:citySearchViewController animated:YES completion:nil];
+}
+
+- (void)finishRefresh {
+    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +87,53 @@
     [self.locationManager startUpdatingLocation];
 }
 
+- (void)updateCitiesWithCurrentWeather {
+    
+    if (![self.refreshControl isRefreshing]) {
+        [SVProgressHUD show];
+    }
+    
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    
+    
+    if (self.currentCity) {
+        [mutableArray addObject:self.currentCity];
+    }
+    
+    if (self.citiesArray.count) {
+        [mutableArray addObjectsFromArray:self.citiesArray];
+    }
+    
+    dispatch_group_t group = dispatch_group_create();
+    
+    for (City *city in mutableArray) {
+        dispatch_group_enter(group);
+        [[RequestManager sharedManager] updateCityWithCurrentWeather:city withCompletion:^{
+            dispatch_group_leave(group);
+        }];
+    }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"all jobs finished");
+        [SVProgressHUD dismiss];
+        [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
+        [self.tableView reloadData];
+    });
+    
+    
+    //    [[RequestManager sharedManager] requestCurrentWeatherWithCoordinate:self.currentLocation.coordinate withCompletion:^(City *city) {
+    //
+    //        [SVProgressHUD dismiss];
+    //        [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
+    //
+    //        if (city) {
+    //            self.citiesArray = @[city];
+    //            [self.tableView reloadData];
+    //        }
+    //        
+    //    }];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     NSLog(@"DEBUG___ did change authorization status");
 }
@@ -84,30 +144,12 @@
     
     self.currentLocation = [locations firstObject];
     
-    [self fetchWeatherForCurrentLocation];
-}
-
-- (void)fetchWeatherForCurrentLocation {
+    [SVProgressHUD show];
     
-    if (![self.refreshControl isRefreshing]) {
-        [SVProgressHUD show];
-    }
-
-    [[RequestManager sharedManager] requestCurrentWeatherWithCoordinate:self.currentLocation.coordinate withCompletion:^(City *city) {
-        
-        [SVProgressHUD dismiss];
-        [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
-        
-        if (city) {
-            self.citiesArray = @[city];
-            [self.tableView reloadData];
-        }
-        
+    [[RequestManager sharedManager] fetchCityWithCurrentWeatherWithCoordinate:self.currentLocation.coordinate withCompletion:^(City *city) {
+        self.currentCity = city;
+        [self updateCitiesWithCurrentWeather];
     }];
-}
-
-- (void)finishRefresh {
-    [self.refreshControl endRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -115,20 +157,90 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.citiesArray.count;
+    if (self.currentCity) {
+        return self.citiesArray.count + 1;
+    } else {
+        return self.citiesArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
     
-    City *city = self.citiesArray[indexPath.row];
-    [cell configureWithCity:city];
-    
+    if (self.currentCity) {
+        if (indexPath.row == 0) {
+            [cell configureWithCity:self.currentCity];
+        } else {
+            [cell configureWithCity:self.citiesArray[indexPath.row - 1]];
+        }
+    } else {
+        [cell configureWithCity:self.citiesArray[indexPath.row]];
+    }
     return cell;
 }
 
+-(void)addCity:(City *)city {
+    
+    BOOL duplicate = NO;   //making sure that user will not be able to add the same city twice
+    
+    for (City *existingCity in self.citiesArray) {
+        if ([city.googlePlaceID isEqualToString:existingCity.googlePlaceID]) {
+            duplicate = YES;
+        }
+    }
+    
+    if (!duplicate) {
+        NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.citiesArray];
+        [mutableArray addObject:city];
+        self.citiesArray = mutableArray;
+        [self updateCitiesWithCurrentWeather];
+        
+        [self saveCityToNSUserDefaults:city];
+    }
+}
 
+- (void)saveCityToNSUserDefaults:(City *)city {
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![userDefaults objectForKey:@"cities"]) {
+        NSArray *cities = [NSArray array];
+        [userDefaults setObject:cities forKey:@"cities"];
+        [userDefaults synchronize];
+    }
+    
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[userDefaults objectForKey:@"cities"]];
+    
+    NSString *latitude = [NSString stringWithFormat:@"%.5f", city.coordinate.latitude];
+    NSString *longitude = [NSString stringWithFormat:@"%.5f", city.coordinate.longitude];
+    
+    NSDictionary *dict = @{@"name":city.locationName, @"placeID":city.googlePlaceID, @"latitude":latitude, @"longitude":longitude};
+    [mutableArray addObject:dict];
+    
+    NSArray *array = [NSArray arrayWithArray:mutableArray];
+    [userDefaults setObject:array forKey:@"cities"];
+    [userDefaults synchronize];
+}
 
+- (NSArray *)retrieveCitiesFromNSUserDefaults {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray *savedCities = [userDefaults objectForKey:@"cities"];
+    
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    for (NSDictionary *dict in savedCities) {
+        
+        City *city = [[City alloc] init];
+        city.locationName = dict[@"name"];
+        city.googlePlaceID = dict[@"placeID"];
+        
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([dict[@"latitude"] doubleValue], [dict[@"longitude"] doubleValue]);
+        city.coordinate = coordinate;
+        
+        [mutableArray addObject:city];
+    }
+    
+    return [NSArray arrayWithArray:mutableArray];
+}
 
 @end
