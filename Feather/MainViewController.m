@@ -13,6 +13,7 @@
 #import "RequestManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "CitySearchViewController.h"
+#import "ForecastViewController.h"
 
 
 @interface MainViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, CitySearchViewControllerDelegate>
@@ -178,6 +179,11 @@
         [cell configureWithCity:self.citiesArray[indexPath.row]];
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ForecastViewController *viewController = [[ForecastViewController alloc] initWithNibName:@"ForecastViewController" bundle:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)addCity:(City *)city {

@@ -26,6 +26,10 @@
 		9425FF6F1ED2398F00E908EA /* CitySearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF6D1ED2398F00E908EA /* CitySearchViewController.xib */; };
 		9425FF771ED2418200E908EA /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF761ED2418200E908EA /* SearchBar.m */; };
 		9425FF7B1ED241A300E908EA /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425FF7A1ED241A300E908EA /* SearchBar.xib */; };
+		947CAF171EE5F0EC00B4BE06 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947CAF151EE5F0EC00B4BE06 /* ForecastViewController.m */; };
+		947CAF181EE5F0ED00B4BE06 /* ForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947CAF161EE5F0EC00B4BE06 /* ForecastViewController.xib */; };
+		947CAF1C1EE5F2F100B4BE06 /* ForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947CAF1A1EE5F2F100B4BE06 /* ForecastTableViewCell.m */; };
+		947CAF1D1EE5F2F100B4BE06 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947CAF1B1EE5F2F100B4BE06 /* ForecastTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,12 @@
 		9425FF751ED2418200E908EA /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
 		9425FF761ED2418200E908EA /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
 		9425FF7A1ED241A300E908EA /* SearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
+		947CAF141EE5F0EC00B4BE06 /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
+		947CAF151EE5F0EC00B4BE06 /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
+		947CAF161EE5F0EC00B4BE06 /* ForecastViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastViewController.xib; sourceTree = "<group>"; };
+		947CAF191EE5F2F100B4BE06 /* ForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastTableViewCell.h; sourceTree = "<group>"; };
+		947CAF1A1EE5F2F100B4BE06 /* ForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastTableViewCell.m; sourceTree = "<group>"; };
+		947CAF1B1EE5F2F100B4BE06 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +173,12 @@
 				940D97A71ED9AA1E00DBED89 /* CitySearchTableViewCell.h */,
 				940D97A81ED9AA1E00DBED89 /* CitySearchTableViewCell.m */,
 				940D97A91ED9AA1E00DBED89 /* CitySearchTableViewCell.xib */,
+				947CAF141EE5F0EC00B4BE06 /* ForecastViewController.h */,
+				947CAF151EE5F0EC00B4BE06 /* ForecastViewController.m */,
+				947CAF161EE5F0EC00B4BE06 /* ForecastViewController.xib */,
+				947CAF191EE5F2F100B4BE06 /* ForecastTableViewCell.h */,
+				947CAF1A1EE5F2F100B4BE06 /* ForecastTableViewCell.m */,
+				947CAF1B1EE5F2F100B4BE06 /* ForecastTableViewCell.xib */,
 				9425FF751ED2418200E908EA /* SearchBar.h */,
 				9425FF761ED2418200E908EA /* SearchBar.m */,
 				9425FF7A1ED241A300E908EA /* SearchBar.xib */,
@@ -322,9 +338,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9425FF341ED07A0600E908EA /* LaunchScreen.storyboard in Resources */,
+				947CAF181EE5F0ED00B4BE06 /* ForecastViewController.xib in Resources */,
 				940D97AB1ED9AA1E00DBED89 /* CitySearchTableViewCell.xib in Resources */,
 				9425FF5B1ED07AAD00E908EA /* MainViewController.xib in Resources */,
 				9425FF601ED07EE200E908EA /* CityTableViewCell.xib in Resources */,
+				947CAF1D1EE5F2F100B4BE06 /* ForecastTableViewCell.xib in Resources */,
 				9425FF311ED07A0600E908EA /* Assets.xcassets in Resources */,
 				9425FF6F1ED2398F00E908EA /* CitySearchViewController.xib in Resources */,
 				9425FF7B1ED241A300E908EA /* SearchBar.xib in Resources */,
@@ -405,10 +423,12 @@
 				9425FF6E1ED2398F00E908EA /* CitySearchViewController.m in Sources */,
 				9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */,
 				9425FF6A1ED0A31100E908EA /* City.m in Sources */,
+				947CAF171EE5F0EC00B4BE06 /* ForecastViewController.m in Sources */,
 				9425FF5A1ED07AAD00E908EA /* MainViewController.m in Sources */,
 				940D97AA1ED9AA1E00DBED89 /* CitySearchTableViewCell.m in Sources */,
 				9425FF5F1ED07EE200E908EA /* CityTableViewCell.m in Sources */,
 				9425FF261ED07A0500E908EA /* main.m in Sources */,
+				947CAF1C1EE5F2F100B4BE06 /* ForecastTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
