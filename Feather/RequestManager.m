@@ -9,6 +9,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "RequestManager.h"
 #import "City.h"
+#import "Day.h"
 
 
 @implementation RequestManager
@@ -93,5 +94,49 @@
         NSLog(@"fail");
     }];
 }
+
+- (void)fetchDaysWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (NSArray *days))completion {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:APIXU_KEY forKey:@"key"];
+    [params setObject:[NSString stringWithFormat:@"%f,%f", coordinate.latitude, coordinate.longitude] forKey:@"q"];
+    [params setObject:[] forKey:@"days"];
+    
+    [[AFHTTPSessionManager manager] GET:[APIXU_BASE_URL stringByAppendingString:@"forecast.json"] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        Day *day = [[Day alloc] init];
+        day.date = responseObject;
+        day.tempC = responseObject[@"current"][@"temp_c"];
+        
+        if (completion) {
+            completion(nil);
+        }
+        
+        NSLog(@"success");
+        
+    }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"fail");
+    }];
+}
+
+- (void)updateCityWithForecastedWeather:(City *)city withCompletion:(void (^) (void))completion {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:APIXU_KEY forKey:@"key"];
+    [params setObject:[NSString stringWithFormat:@"%f,%f", city.coordinate.latitude, city.coordinate.longitude] forKey:@"q"];
+    
+    [[AFHTTPSessionManager manager] GET:[APIXU_BASE_URL stringByAppendingString:@"current.json"] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        city.tempC = responseObject[@"current"][@"temp_c"];
+        
+        if (completion) {
+            completion();
+        }
+        
+    }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"fail");
+    }];
+}
+
 
 @end

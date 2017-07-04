@@ -19,5 +19,7 @@
 - (void)fetchCityWithPrediction:(GMSAutocompletePrediction *)prediction withCompletion:(void (^) (City *city))completion;
 - (void)fetchCityWithCurrentWeatherWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (City *city))completion;
 - (void)updateCityWithCurrentWeather:(City *)city withCompletion:(void (^) (void))completion;
+- (void)fetchDaysWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (NSArray *days))completion;
+- (void)updateCityWithForecastedWeather:(City *)city withCompletion:(void (^) (void))completion;
 
 @end

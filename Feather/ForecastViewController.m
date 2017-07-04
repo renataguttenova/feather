@@ -53,7 +53,7 @@
         [SVProgressHUD dismiss];
         [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
         [self.tableView reloadData];
-    });so
+    });
 }
 
 - (void)finishRefresh {

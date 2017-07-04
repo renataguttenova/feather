@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23A0C24E72C363970A8F0846 /* libPods-Feather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7442AA4A80A51C126F5FD94C /* libPods-Feather.a */; };
+		940929E21F0AF28000617E5C /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 940929E11F0AF28000617E5C /* Day.m */; };
 		940D97AA1ED9AA1E00DBED89 /* CitySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940D97A81ED9AA1E00DBED89 /* CitySearchTableViewCell.m */; };
 		940D97AB1ED9AA1E00DBED89 /* CitySearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940D97A91ED9AA1E00DBED89 /* CitySearchTableViewCell.xib */; };
 		9425FF261ED07A0500E908EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9425FF251ED07A0500E908EA /* main.m */; };
@@ -55,6 +56,8 @@
 		5C097464DA82B62E8B42DB13 /* libPods-FeatherUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FeatherUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7442AA4A80A51C126F5FD94C /* libPods-Feather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Feather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E98D2EBFF9A205CD2ED5B92 /* Pods-Feather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feather/Pods-Feather.release.xcconfig"; sourceTree = "<group>"; };
+		940929E01F0AF28000617E5C /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		940929E11F0AF28000617E5C /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		940D97A71ED9AA1E00DBED89 /* CitySearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearchTableViewCell.h; sourceTree = "<group>"; };
 		940D97A81ED9AA1E00DBED89 /* CitySearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearchTableViewCell.m; sourceTree = "<group>"; };
 		940D97A91ED9AA1E00DBED89 /* CitySearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				9425FF7A1ED241A300E908EA /* SearchBar.xib */,
 				9425FF681ED0A31100E908EA /* City.h */,
 				9425FF691ED0A31100E908EA /* City.m */,
+				940929E01F0AF28000617E5C /* Day.h */,
+				940929E11F0AF28000617E5C /* Day.m */,
 				9425FF301ED07A0600E908EA /* Assets.xcassets */,
 				9425FF321ED07A0600E908EA /* LaunchScreen.storyboard */,
 				9425FF351ED07A0600E908EA /* Info.plist */,
@@ -424,6 +429,7 @@
 				9425FF291ED07A0600E908EA /* AppDelegate.m in Sources */,
 				9425FF6A1ED0A31100E908EA /* City.m in Sources */,
 				947CAF171EE5F0EC00B4BE06 /* ForecastViewController.m in Sources */,
+				940929E21F0AF28000617E5C /* Day.m in Sources */,
 				9425FF5A1ED07AAD00E908EA /* MainViewController.m in Sources */,
 				940D97AA1ED9AA1E00DBED89 /* CitySearchTableViewCell.m in Sources */,
 				9425FF5F1ED07EE200E908EA /* CityTableViewCell.m in Sources */,
