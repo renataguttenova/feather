@@ -19,15 +19,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self configureWithImageView];
+    self.weatherIconImageView.image = [UIImage imageNamed:@"113"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-}
-
-- (void)configureWithImageView {
-    self.weatherIconImageView.image = [UIImage imageNamed:@"113"];
 }
 
 @end

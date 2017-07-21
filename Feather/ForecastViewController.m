@@ -72,9 +72,11 @@
     
     if (indexPath.row == 0) {
         CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
+        
         return cell;
     } else {
         ForecastTableViewCell *cell = (ForecastTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ForecastTableViewCell"];
+        
         return cell;
     }
 }

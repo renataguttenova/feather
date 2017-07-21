@@ -37,9 +37,7 @@
     self.citiesArray = [self retrieveCitiesFromNSUserDefaults];
     [self configure];
     
-    self.title = @"TEST";
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done rogramatically, so I created a method to set what it does when pressed
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
     
     [self configureLocationManager];
     
@@ -81,7 +79,7 @@
     
     self.locationManager.delegate = self;
     
-    self.locationManager.distanceFilter = 100;
+    self.locationManager.distanceFilter = 100;  //minimum distance in meters I have to move so that it updates the location
     self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
     
     [self.locationManager requestWhenInUseAuthorization];
@@ -109,7 +107,7 @@
     
     for (City *city in mutableArray) {
         dispatch_group_enter(group);
-        [[RequestManager sharedManager] updateCityWithCurrentWeather:city withCompletion:^{
+        [[RequestManager sharedManager] updateCityWithCurrentWeather:city withCompletion:^{  //sharedManager - we create a singleton because we want all these requests to be done by one RequestManager - to assure the requests happen one after another and not all at once performed by many requestManagers. With Completion means that the following code will NOT run until the previous one is fnished
             dispatch_group_leave(group);
         }];
     }
@@ -182,8 +180,26 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ForecastViewController *viewController = [[ForecastViewController alloc] initWithNibName:@"ForecastViewController" bundle:nil];
-    [self.navigationController pushViewController:viewController animated:YES];
+    
+    City *selectedCity;
+    
+    if (self.currentCity) {
+        if (indexPath.row == 0) {
+            selectedCity = self.currentCity;
+        } else {
+            selectedCity = self.citiesArray[indexPath.row - 1];
+        }
+    } else {
+        selectedCity = self.citiesArray[indexPath.row];
+    }
+    
+    
+    [[RequestManager sharedManager] fetchDaysWithCoordinate:selectedCity.coordinate withCompletion:^(NSArray *days) {
+        ForecastViewController *viewController = [[ForecastViewController alloc] initWithNibName:@"ForecastViewController" bundle:nil];
+        viewController.days = days;
+        [self.navigationController pushViewController:viewController animated:YES];
+    }];
+    
 }
 
 -(void)addCity:(City *)city {

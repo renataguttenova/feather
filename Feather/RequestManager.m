@@ -97,24 +97,43 @@
 
 - (void)fetchDaysWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (NSArray *days))completion {
     
+    
+//    NSString *hello = @"Hello";
+//    NSString *goodbye = [[NSString alloc] initWithString:@"Hello"];
+//    
+//    NSNumber *number = [[NSNumber alloc] initWithInt:6];
+    
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:APIXU_KEY forKey:@"key"];
     [params setObject:[NSString stringWithFormat:@"%f,%f", coordinate.latitude, coordinate.longitude] forKey:@"q"];
-    [params setObject:[] forKey:@"days"];
+    [params setObject:@6 forKey:@"days"];
     
     [[AFHTTPSessionManager manager] GET:[APIXU_BASE_URL stringByAppendingString:@"forecast.json"] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        Day *day = [[Day alloc] init];
-        day.date = responseObject;
-        day.tempC = responseObject[@"current"][@"temp_c"];
+        NSDictionary *forecast = responseObject[@"forecast"];
+        NSArray *forecastday = forecast[@"forecastday"];
         
+        NSMutableArray *mutableArray = [NSMutableArray array];
+        
+        for (NSDictionary *dict in forecastday) {
+            
+            Day *day = [[Day alloc] init];
+            
+            day.tempC = dict[@"day"][@"avgtemp_c"];
+            day.date = dict[@"date"];
+            
+            [mutableArray addObject:day];
+        }
+        
+
         if (completion) {
-            completion(nil);
+            completion([NSArray arrayWithArray:mutableArray]);
         }
         
         NSLog(@"success");
         
-    }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"fail");
     }];
 }

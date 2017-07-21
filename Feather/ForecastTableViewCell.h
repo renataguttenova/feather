@@ -12,8 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherIconImageView;
 
-- (void)configureWithImageView;
-
-
 
 @end

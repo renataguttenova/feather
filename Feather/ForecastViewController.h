@@ -10,4 +10,6 @@
 
 @interface ForecastViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *days;
+
 @end
