@@ -196,6 +196,7 @@
     
     [[RequestManager sharedManager] fetchDaysWithCoordinate:selectedCity.coordinate withCompletion:^(NSArray *days) {
         ForecastViewController *viewController = [[ForecastViewController alloc] initWithNibName:@"ForecastViewController" bundle:nil];
+        viewController.city = selectedCity;
         viewController.days = days;
         [self.navigationController pushViewController:viewController animated:YES];
     }];

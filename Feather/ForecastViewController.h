@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
 @interface ForecastViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *days;
+@property (strong, nonatomic) City *city;
 
 @end

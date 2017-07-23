@@ -9,6 +9,7 @@
 #import "ForecastViewController.h"
 #import "ForecastTableViewCell.h"
 #import "CityTableViewCell.h"
+#import "RequestManager.h"
 
 @interface ForecastViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -29,35 +30,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CityTableViewCell" bundle:nil] forCellReuseIdentifier:@"CityTableViewCell"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"ForecastTableViewCell"];
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(updateCitiesWithCurrentTemperature) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-
-- (void)updateCitiesWithCurrentTemperature {
-    
-    if (![self.refreshControl isRefreshing]) {
-        [SVProgressHUD show];
-    }
-  
-      dispatch_group_t group = dispatch_group_create();
-   
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        NSLog(@"all jobs finished");
-        [SVProgressHUD dismiss];
-        [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
-        [self.tableView reloadData];
-    });
-}
-
-- (void)finishRefresh {
-    [self.refreshControl endRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -65,23 +41,42 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return self.days.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
-        CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
         
+        CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
+        [cell configureWithCity:self.city];
         return cell;
+        
     } else {
+        
         ForecastTableViewCell *cell = (ForecastTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ForecastTableViewCell"];
         
+        [cell configureWithDay:self.days[indexPath.row - 1]];
+        
         return cell;
+
     }
 }
-    
 
-
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
+//
+//    if (self.currentCity) {
+//        if (indexPath.row == 0) {
+//            [cell configureWithCity:self.currentCity];
+//        } else {
+//            [cell configureWithCity:self.citiesArray[indexPath.row - 1]];
+//        }
+//    } else {
+//        [cell configureWithCity:self.citiesArray[indexPath.row]];
+//    }
+//    return cell;
+//}
 
 @end

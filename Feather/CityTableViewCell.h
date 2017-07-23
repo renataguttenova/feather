@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "City.h"
+#import "Day.h"
 
 @interface CityTableViewCell : UITableViewCell
 

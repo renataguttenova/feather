@@ -7,6 +7,7 @@
 //
 
 #import "CityTableViewCell.h"
+#import "Day.h"
 
 @interface CityTableViewCell ()
 
@@ -25,6 +26,10 @@
 - (void)configureWithCity:(City *)city {
     self.cityLabel.text = city.locationName;
     self.temperatureLabel.text = [city.tempC stringValue];
+}
+
+- (void)configureWithDay:(Day *)day {
+    self.cityLabel.text = [day.tempC stringValue];
 }
 
 

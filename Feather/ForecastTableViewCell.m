@@ -7,6 +7,7 @@
 //
 
 #import "ForecastTableViewCell.h"
+#import "Day.h"
 
 @interface ForecastTableViewCell ()
 
@@ -24,6 +25,10 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)configureWithDay:(Day *)day {
+    self.label.text = [day.tempC stringValue];
 }
 
 @end

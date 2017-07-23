@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Day.h"
 
 @interface ForecastTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherIconImageView;
+
+- (void)configureWithDay:(Day *)day;
+
 
 
 @end
