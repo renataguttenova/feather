@@ -38,6 +38,7 @@
     [self configure];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor tealDark];
     
     [self configureLocationManager];
     
@@ -65,11 +66,14 @@
 
 - (void)configure {
     [self setTitle:@"Title"];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor tealDark]}];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.tableView.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor tealDark];
+    self.tableView.backgroundColor = [UIColor tealLight];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CityTableViewCell" bundle:nil] forCellReuseIdentifier:@"CityTableViewCell"];
 }

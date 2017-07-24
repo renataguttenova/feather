@@ -29,6 +29,9 @@
 
 - (void)configureWithDay:(Day *)day {
     self.label.text = [day.tempC stringValue];
+    self.label.textColor = [UIColor grayDarkest];
+    self.contentView.backgroundColor = [UIColor blueLight];
+    self.label.backgroundColor = [UIColor blueDark];
 }
 
 @end

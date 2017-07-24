@@ -10,6 +10,8 @@
 #define PrefixHeader_pch
 
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "UIColor+FeatherColors.h"
+#import "UIFont+FeatherFonts.h"
 
 #define APIXU_KEY @"25962e4fdec544359cd164840170402"
 #define APIXU_BASE_URL @"https://api.apixu.com/v1/"

@@ -30,6 +30,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CityTableViewCell" bundle:nil] forCellReuseIdentifier:@"CityTableViewCell"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"ForecastTableViewCell"];
+    
+    self.tableView.backgroundColor = [UIColor blueLight];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -28,6 +28,14 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Test</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Nunito-Light.ttf</string>
+		<string>Nunito-Bold.ttf</string>
+		<string>Nunito-Regular.ttf</string>
+	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -29,6 +29,9 @@
 
 - (void)configureWithPrediction:(GMSAutocompletePrediction *)prediction {
     self.label.text = [prediction.attributedFullText string];
+    self.label.textColor = [UIColor grayDarkest];
+    self.contentView.backgroundColor = [UIColor redLight];
+    self.label.backgroundColor = [UIColor redDark];
 }
 
 @end
