@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 
-- (void)configureWithCity:(City *)city;
+- (void)configureWithCity:(City *)city andBackgroundColor:(UIColor *)color;
 
 @end

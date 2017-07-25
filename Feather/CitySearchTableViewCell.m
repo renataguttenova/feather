@@ -19,6 +19,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    [self configure];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -29,9 +31,13 @@
 
 - (void)configureWithPrediction:(GMSAutocompletePrediction *)prediction {
     self.label.text = [prediction.attributedFullText string];
+}
+
+- (void)configure {
+    self.label.backgroundColor = [UIColor whiteColor];
+    self.label.font = [UIFont nunitoRegularWithSize:22.0f];
     self.label.textColor = [UIColor grayDarkest];
-    self.contentView.backgroundColor = [UIColor redLight];
-    self.label.backgroundColor = [UIColor redDark];
+    self.contentView.backgroundColor = [UIColor clearColor];
 }
 
 @end

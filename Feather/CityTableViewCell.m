@@ -17,22 +17,27 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [self configure];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 
-- (void)configureWithCity:(City *)city {
-    self.contentView.backgroundColor = [UIColor grayLight];
-    self.cityLabel.font = [UIFont nunitoBoldWithSize:25.0f];
+- (void)configureWithCity:(City *)city andBackgroundColor:(UIColor *)color {
+    self.contentView.backgroundColor = color;
     self.cityLabel.text = city.locationName;
-    self.cityLabel.textColor = [UIColor grayDarkest];
-    self.cityLabel.backgroundColor = [UIColor tealDark];
     self.temperatureLabel.text = [city.tempC stringValue];
-    self.temperatureLabel.textColor = [UIColor grayDarkest];
-    self.temperatureLabel.backgroundColor = [UIColor tealDark];
 }
 
+- (void)configure {
+    self.cityLabel.font = [UIFont nunitoBoldWithSize:30.0f];
+    self.cityLabel.textColor = [UIColor whiteColor];
+    self.cityLabel.backgroundColor = [UIColor clearColor];
+    self.temperatureLabel.font = [UIFont nunitoLightWithSize:30.0f];
+    self.temperatureLabel.textColor = [UIColor whiteColor];
+    self.temperatureLabel.backgroundColor = [UIColor clearColor];
+}
 
 @end

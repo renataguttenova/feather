@@ -20,7 +20,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.weatherIconImageView.image = [UIImage imageNamed:@"113"];
+    [self configure];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -28,10 +28,16 @@
 }
 
 - (void)configureWithDay:(Day *)day {
-    self.label.text = [day.tempC stringValue];
-    self.label.textColor = [UIColor grayDarkest];
-    self.contentView.backgroundColor = [UIColor blueLight];
-    self.label.backgroundColor = [UIColor blueDark];
+    self.label.text = day.date;
+    self.weatherIconImageView.image = [UIImage imageNamed:day.iconCode];
+}
+
+- (void)configure {
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.label.textColor = [UIColor whiteColor];
+    self.label.backgroundColor = [UIColor clearColor];
+    self.label.font = [UIFont nunitoLightWithSize:25.0f];
+    self.weatherIconImageView.image = [UIImage imageNamed:@"113"];
 }
 
 @end

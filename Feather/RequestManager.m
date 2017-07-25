@@ -123,6 +123,12 @@
             day.tempC = dict[@"day"][@"avgtemp_c"];
             day.date = dict[@"date"];
             
+            NSString *iconAddress = dict[@"day"][@"condition"][@"icon"];
+            NSString *iconImage = [iconAddress substringFromIndex: [iconAddress length] - 7];
+            NSString *iconCode = [iconImage stringByReplacingOccurrencesOfString:@".png" withString:@""];
+            
+            day.iconCode = iconCode;
+            
             [mutableArray addObject:day];
         }
         

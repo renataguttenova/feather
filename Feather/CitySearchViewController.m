@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet SearchBar *searchBar;
 
 @property (strong, nonatomic) GMSAutocompleteFetcher *placeFetcher;
-@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 
 @property (strong, nonatomic) NSArray *predictionsArray;
 
@@ -35,6 +34,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"X" style:UIBarButtonItemStylePlain target:self action:@selector(dismissButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor tealDark];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"CitySearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"CitySearchTableViewCell"];
     
     // Set up the autocomplete filter.
@@ -44,6 +46,10 @@
     // Create the fetcher.
     self.placeFetcher = [[GMSAutocompleteFetcher alloc] initWithBounds:nil filter:filter];
     self.placeFetcher.delegate = self;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+//    self.searchBar.backgroundColor = [UIColor yellowLight];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,7 +105,7 @@
     [self.placeFetcher sourceTextHasChanged:text];
 }
 
-- (IBAction)dismissButtonPressed:(id)sender {
+- (void)dismissButtonPressed {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

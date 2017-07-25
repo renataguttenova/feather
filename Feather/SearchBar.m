@@ -44,12 +44,15 @@
     self.clipsToBounds = YES;
     
     self.textField.delegate = self;
+    [self.textField setFont:[UIFont nunitoBoldWithSize:30.0f]];
+    
+    self.view.backgroundColor = [UIColor purpleLight];
     
     [self configureAppearance];
 }
 
 - (void)configureAppearance {
-    self.textField.placeholder = @"PLACEHOLDER";
+    self.textField.placeholder = @"Enter a city!";
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

@@ -31,7 +31,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"ForecastTableViewCell"];
     
-    self.tableView.backgroundColor = [UIColor blueLight];
+    self.view.backgroundColor = [UIColor greenLight];
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +52,7 @@
     if (indexPath.row == 0) {
         
         CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
-        [cell configureWithCity:self.city];
+        [cell configureWithCity:self.city andBackgroundColor:[UIColor greenDark]];
         return cell;
         
     } else {
@@ -62,6 +63,14 @@
         
         return cell;
 
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 100;
+    } else {
+        return 65;
     }
 }
 

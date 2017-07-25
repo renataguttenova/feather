@@ -43,6 +43,7 @@
     [self configureLocationManager];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(updateCitiesWithCurrentWeather) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];  //this is so that the refreshing circle doesnt go over the cell when returning up
     
@@ -52,7 +53,11 @@
 - (void)addButtonPressed {
     CitySearchViewController *citySearchViewController = [[CitySearchViewController alloc] init];
     citySearchViewController.delegate = self;
-    [self presentViewController:citySearchViewController animated:YES completion:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:citySearchViewController];
+    
+    navigationController.navigationBar.translucent = NO;
+    [self presentViewController:navigationController animated:YES completion:nil];
+//    [self presentViewController:citySearchViewController animated:YES completion:nil];
 }
 
 - (void)finishRefresh {
@@ -67,13 +72,13 @@
 - (void)configure {
     [self setTitle:@"Title"];
     [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor tealDark]}];
+     @{NSForegroundColorAttributeName:[UIColor blueLight]}];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.view.backgroundColor = [UIColor tealDark];
-    self.tableView.backgroundColor = [UIColor tealLight];
+    self.view.backgroundColor = [UIColor blueLight];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CityTableViewCell" bundle:nil] forCellReuseIdentifier:@"CityTableViewCell"];
 }
@@ -173,12 +178,12 @@
     
     if (self.currentCity) {
         if (indexPath.row == 0) {
-            [cell configureWithCity:self.currentCity];
+            [cell configureWithCity:self.currentCity andBackgroundColor:[UIColor blueDark]];
         } else {
-            [cell configureWithCity:self.citiesArray[indexPath.row - 1]];
+            [cell configureWithCity:self.citiesArray[indexPath.row - 1] andBackgroundColor:self.view.backgroundColor];
         }
     } else {
-        [cell configureWithCity:self.citiesArray[indexPath.row]];
+        [cell configureWithCity:self.citiesArray[indexPath.row] andBackgroundColor:self.view.backgroundColor];
     }
     return cell;
 }
@@ -205,6 +210,10 @@
         [self.navigationController pushViewController:viewController animated:YES];
     }];
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
 
 -(void)addCity:(City *)city {

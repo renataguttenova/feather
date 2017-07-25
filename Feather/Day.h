@@ -11,6 +11,7 @@
 
 @interface Day : NSObject
 
+@property (strong, nonatomic) NSString *iconCode;
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSNumber *tempC;
 
