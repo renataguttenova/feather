@@ -37,8 +37,18 @@
     self.citiesArray = [self retrieveCitiesFromNSUserDefaults];
     [self configure];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueLight];
+/*    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueLight];*/
+    
+    self.title = @"";
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0,0,30,30);
+    UIImage *plusImage = [[UIImage imageNamed: @"plus"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [button setImage:plusImage forState:UIControlStateNormal];
+    button.imageView.tintColor = [UIColor blueLight];
+    [button addTarget:self action:@selector(addButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     
     [self configureLocationManager];
     

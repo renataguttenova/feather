@@ -31,6 +31,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"ForecastTableViewCell"];
     
+    self.navigationController.navigationBar.tintColor = [UIColor greenLight];
+    
     UIImage *image = [[UIImage imageNamed:@"splash12x30.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     [imageView setTintColor:[UIColor greenLight]];

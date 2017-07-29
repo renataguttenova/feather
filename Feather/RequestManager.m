@@ -132,6 +132,8 @@
             [mutableArray addObject:day];
         }
         
+        [mutableArray removeObjectAtIndex:0];
+        
 
         if (completion) {
             completion([NSArray arrayWithArray:mutableArray]);

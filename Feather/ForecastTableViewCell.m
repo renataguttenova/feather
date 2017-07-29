@@ -28,7 +28,15 @@
 }
 
 - (void)configureWithDay:(Day *)day {
-    self.label.text = day.date;
+    NSDateFormatter *stringToDateFormatter = [[NSDateFormatter alloc] init];
+    [stringToDateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [stringToDateFormatter dateFromString:day.date];
+    
+    NSDateFormatter *dateToStringFormatter = [[NSDateFormatter alloc] init];
+    [dateToStringFormatter setDateFormat:@"EEEE"];
+    
+    self.label.text = [dateToStringFormatter stringFromDate:date];
+    
     self.weatherIconImageView.image = [UIImage imageNamed:day.iconCode];
 }
 

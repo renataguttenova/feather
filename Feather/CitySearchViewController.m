@@ -34,8 +34,16 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"X" style:UIBarButtonItemStylePlain target:self action:@selector(dismissButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor purpleLight];
+/*    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"X" style:UIBarButtonItemStylePlain target:self action:@selector(dismissButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor purpleLight];*/
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0,0,30,30);
+    UIImage *closeImage = [[UIImage imageNamed: @"close"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [button setImage:closeImage forState:UIControlStateNormal];
+    button.imageView.tintColor = [UIColor purpleLight];
+    [button addTarget:self action:@selector(dismissButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     
     UIImage *image = [[UIImage imageNamed:@"splash12x30.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];

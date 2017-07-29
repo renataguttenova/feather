@@ -28,7 +28,8 @@
 - (void)configureWithCity:(City *)city andBackgroundColor:(UIColor *)color {
     self.contentView.backgroundColor = color;
     self.cityLabel.text = city.locationName;
-    self.temperatureLabel.text = [city.tempC stringValue];
+    self.temperatureLabel.text = [[city.tempC stringValue] stringByAppendingString:@"°"];
+
 }
 
 - (void)configure {
