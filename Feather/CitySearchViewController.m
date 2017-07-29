@@ -29,14 +29,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self configure];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Configure
+
+- (void)configure {
     self.searchBar.delegate = self;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-/*    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"X" style:UIBarButtonItemStylePlain target:self action:@selector(dismissButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor purpleLight];*/
+    [self.tableView registerNib:[UINib nibWithNibName:@"CitySearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"CitySearchTableViewCell"];
     
+    [self configureCloseButton];
+    [self configureAutoComplete];
+}
+
+- (void)configureCloseButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0,0,30,30);
     UIImage *closeImage = [[UIImage imageNamed: @"close"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -49,24 +63,17 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     [imageView setTintColor:[UIColor purpleLight]];
     self.navigationItem.titleView = imageView;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"CitySearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"CitySearchTableViewCell"];
-    
-    // Set up the autocomplete filter.
+}
+
+- (void)configureAutoComplete {
     GMSAutocompleteFilter *filter = [[GMSAutocompleteFilter alloc] init];
     filter.type = kGMSPlacesAutocompleteTypeFilterCity;
     
-    // Create the fetcher.
     self.placeFetcher = [[GMSAutocompleteFetcher alloc] initWithBounds:nil filter:filter];
     self.placeFetcher.delegate = self;
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
-//    self.searchBar.backgroundColor = [UIColor yellowLight];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - TableViewDelegate/Datasource
@@ -97,6 +104,7 @@
 }
 
 #pragma mark - GMSAutocompleteFetcherDelegate
+
 - (void)didAutocompleteWithPredictions:(NSArray *)predictions {
     
     NSMutableArray *mutableArray = [NSMutableArray array];

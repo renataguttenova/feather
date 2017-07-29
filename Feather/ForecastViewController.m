@@ -23,7 +23,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [self configure];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+# pragma mark - Configure
+
+- (void)configure {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -42,9 +52,7 @@
     self.tableView.backgroundColor = [UIColor clearColor];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+# pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -80,21 +88,5 @@
         return 65;
     }
 }
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    CityTableViewCell *cell = (CityTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CityTableViewCell"];
-//
-//    if (self.currentCity) {
-//        if (indexPath.row == 0) {
-//            [cell configureWithCity:self.currentCity];
-//        } else {
-//            [cell configureWithCity:self.citiesArray[indexPath.row - 1]];
-//        }
-//    } else {
-//        [cell configureWithCity:self.citiesArray[indexPath.row]];
-//    }
-//    return cell;
-//}
 
 @end

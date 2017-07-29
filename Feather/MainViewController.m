@@ -37,53 +37,20 @@
     self.citiesArray = [self retrieveCitiesFromNSUserDefaults];
     [self configure];
     
-/*    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueLight];*/
-    
     self.title = @"";
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0,0,30,30);
-    UIImage *plusImage = [[UIImage imageNamed: @"plus"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [button setImage:plusImage forState:UIControlStateNormal];
-    button.imageView.tintColor = [UIColor blueLight];
-    [button addTarget:self action:@selector(addButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     
     [self configureLocationManager];
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.tintColor = [UIColor whiteColor];
-    [self.refreshControl addTarget:self action:@selector(updateCitiesWithCurrentWeather) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];  //this is so that the refreshing circle doesnt go over the cell when returning up
-    
     [self updateCitiesWithCurrentWeather];
-}
-
-- (void)addButtonPressed {
-    CitySearchViewController *citySearchViewController = [[CitySearchViewController alloc] init];
-    citySearchViewController.delegate = self;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:citySearchViewController];
-    
-    navigationController.navigationBar.translucent = NO;
-    [self presentViewController:navigationController animated:YES completion:nil];
-//    [self presentViewController:citySearchViewController animated:YES completion:nil];
-}
-
-- (void)finishRefresh {
-    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+# pragma mark - Configure
 
 - (void)configure {
-    [self setTitle:@"Title"];
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor blueLight]}];
-    
     UIImage *image = [[UIImage imageNamed:@"splash12x30.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     [imageView setTintColor:[UIColor blueLight]];
@@ -96,6 +63,26 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CityTableViewCell" bundle:nil] forCellReuseIdentifier:@"CityTableViewCell"];
+    
+    [self configureAddButton];
+    [self configureRefreshControl];
+}
+
+- (void)configureAddButton {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0,0,30,30);
+    UIImage *plusImage = [[UIImage imageNamed: @"plus"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [button setImage:plusImage forState:UIControlStateNormal];
+    button.imageView.tintColor = [UIColor blueLight];
+    [button addTarget:self action:@selector(addButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+}
+
+- (void)configureRefreshControl {
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(updateCitiesWithCurrentWeather) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0]; //this is so that the refreshing circle doesnt go over the cell when returning up
 }
 
 - (void)configureLocationManager {
@@ -109,6 +96,8 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 }
+
+# pragma mark - Fetch
 
 - (void)updateCitiesWithCurrentWeather {
     
@@ -131,7 +120,7 @@
     
     for (City *city in mutableArray) {
         dispatch_group_enter(group);
-        [[RequestManager sharedManager] updateCityWithCurrentWeather:city withCompletion:^{  //sharedManager - we create a singleton because we want all these requests to be done by one RequestManager - to assure the requests happen one after another and not all at once performed by many requestManagers. With Completion means that the following code will NOT run until the previous one is fnished
+        [[RequestManager sharedManager] updateCityWithCurrentWeather:city withCompletion:^{
             dispatch_group_leave(group);
         }];
     }
@@ -142,20 +131,9 @@
         [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
         [self.tableView reloadData];
     });
-    
-    
-    //    [[RequestManager sharedManager] requestCurrentWeatherWithCoordinate:self.currentLocation.coordinate withCompletion:^(City *city) {
-    //
-    //        [SVProgressHUD dismiss];
-    //        [self performSelector:@selector(finishRefresh) withObject:nil afterDelay:0.5f];
-    //
-    //        if (city) {
-    //            self.citiesArray = @[city];
-    //            [self.tableView reloadData];
-    //        }
-    //        
-    //    }];
 }
+
+# pragma mark - Location Manager
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     NSLog(@"DEBUG___ did change authorization status");
@@ -174,6 +152,8 @@
         [self updateCitiesWithCurrentWeather];
     }];
 }
+
+# pragma mark - TableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -231,9 +211,11 @@
     return 50;
 }
 
+# pragma mark - User Cities
+
 -(void)addCity:(City *)city {
     
-    BOOL duplicate = NO;   //making sure that user will not be able to add the same city twice
+    BOOL duplicate = NO;
     
     for (City *existingCity in self.citiesArray) {
         if ([city.googlePlaceID isEqualToString:existingCity.googlePlaceID]) {
@@ -292,6 +274,23 @@
     }
     
     return [NSArray arrayWithArray:mutableArray];
+}
+
+# pragma mark - Action
+
+- (void)addButtonPressed {
+    CitySearchViewController *citySearchViewController = [[CitySearchViewController alloc] init];
+    citySearchViewController.delegate = self;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:citySearchViewController];
+    
+    navigationController.navigationBar.translucent = NO;
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+# pragma mark - Utility
+
+- (void)finishRefresh {
+    [self.refreshControl endRefreshing];
 }
 
 @end

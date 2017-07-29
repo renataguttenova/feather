@@ -31,9 +31,6 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     navigationController.navigationBar.translucent = NO;
-        
-//    UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss)];
-//    navigationController.navigationItem.rightBarButtonItem = buttonAdd;
     
     return YES;
 }

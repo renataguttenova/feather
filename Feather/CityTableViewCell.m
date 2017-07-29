@@ -17,19 +17,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     [self configure];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-}
-
-- (void)configureWithCity:(City *)city andBackgroundColor:(UIColor *)color {
-    self.contentView.backgroundColor = color;
-    self.cityLabel.text = city.locationName;
-    self.temperatureLabel.text = [[city.tempC stringValue] stringByAppendingString:@"°"];
-
 }
 
 - (void)configure {
@@ -39,6 +31,13 @@
     self.temperatureLabel.font = [UIFont nunitoLightWithSize:30.0f];
     self.temperatureLabel.textColor = [UIColor whiteColor];
     self.temperatureLabel.backgroundColor = [UIColor clearColor];
+}
+
+- (void)configureWithCity:(City *)city andBackgroundColor:(UIColor *)color {
+    self.contentView.backgroundColor = color;
+    self.cityLabel.text = city.locationName;
+    self.temperatureLabel.text = [[city.tempC stringValue] stringByAppendingString:@"°"];
+
 }
 
 @end

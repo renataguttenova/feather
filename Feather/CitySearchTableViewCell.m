@@ -18,19 +18,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
     
     [self configure];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void)configureWithPrediction:(GMSAutocompletePrediction *)prediction {
-    self.label.text = [prediction.attributedFullText string];
 }
 
 - (void)configure {
@@ -38,6 +31,10 @@
     self.label.font = [UIFont nunitoRegularWithSize:22.0f];
     self.label.textColor = [UIColor grayDarkest];
     self.contentView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)configureWithPrediction:(GMSAutocompletePrediction *)prediction {
+    self.label.text = [prediction.attributedFullText string];
 }
 
 @end

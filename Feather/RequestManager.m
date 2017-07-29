@@ -30,9 +30,7 @@
     [[AFHTTPSessionManager manager] POST:URLString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         NSArray *addressComponents = responseObject[@"result"][@"address_components"];
-        NSString *cityName = [addressComponents firstObject][@"long_name"];  //TODO - Short name?
-        
-        //TODO - Make sure its EXACT lat and lng
+        NSString *cityName = [addressComponents firstObject][@"long_name"];
         
         NSNumber *latitude = responseObject[@"result"][@"geometry"][@"location"][@"lat"];
         NSNumber *longitude = responseObject[@"result"][@"geometry"][@"location"][@"lng"];
@@ -49,7 +47,6 @@
         }
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        //TODO - Handle error
         NSLog(@"DEBUG---- Error: %@", error);
     }];
 }
@@ -72,7 +69,7 @@
         }
                 
     }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"fail");
+        NSLog(@"DEBUG---- Error: %@", error);
     }];
 }
 
@@ -91,18 +88,11 @@
         }
         
     }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"fail");
+        NSLog(@"DEBUG---- Error: %@", error);
     }];
 }
 
 - (void)fetchDaysWithCoordinate:(CLLocationCoordinate2D)coordinate withCompletion:(void (^) (NSArray *days))completion {
-    
-    
-//    NSString *hello = @"Hello";
-//    NSString *goodbye = [[NSString alloc] initWithString:@"Hello"];
-//    
-//    NSNumber *number = [[NSNumber alloc] initWithInt:6];
-    
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:APIXU_KEY forKey:@"key"];
@@ -139,10 +129,8 @@
             completion([NSArray arrayWithArray:mutableArray]);
         }
         
-        NSLog(@"success");
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"fail");
+        NSLog(@"DEBUG---- Error: %@", error);
     }];
 }
 
@@ -161,7 +149,7 @@
         }
         
     }failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"fail");
+        NSLog(@"DEBUG---- Error: %@", error);
     }];
 }
 
