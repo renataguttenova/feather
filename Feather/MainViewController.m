@@ -38,7 +38,7 @@
     [self configure];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor tealDark];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueLight];
     
     [self configureLocationManager];
     
@@ -73,6 +73,11 @@
     [self setTitle:@"Title"];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor blueLight]}];
+    
+    UIImage *image = [[UIImage imageNamed:@"splash12x30.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    [imageView setTintColor:[UIColor blueLight]];
+    self.navigationItem.titleView = imageView;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

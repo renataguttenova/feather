@@ -35,7 +35,12 @@
     self.tableView.dataSource = self;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"X" style:UIBarButtonItemStylePlain target:self action:@selector(dismissButtonPressed)]; //this is like when we drag the button to connect it - but done programatically, so I created a method to set what it does when pressed
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor tealDark];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor purpleLight];
+    
+    UIImage *image = [[UIImage imageNamed:@"splash12x30.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    [imageView setTintColor:[UIColor purpleLight]];
+    self.navigationItem.titleView = imageView;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CitySearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"CitySearchTableViewCell"];
     
